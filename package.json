@@ -1,0 +1,30 @@
+{
+  "name": "dragons",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nunesd/dragons.git"
+  },
+  "author": "@nunesd",
+  "bugs": {
+    "url": "https://github.com/nunesd/dragons/issues"
+  },
+  "homepage": "https://github.com/nunesd/dragons#readme",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "crypto-js": "^4.0.0",
+    "next": "latest",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
+    "react-is": "^16.8.0",
+    "styled-components": "^5.0.0"
+  },
+  "devDependencies": {
+    "babel-plugin-styled-components": "^1.8.0"
+  },
+  "license": "MIT"
+}
