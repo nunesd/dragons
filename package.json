@@ -1,10 +1,7 @@
 {
   "name": "dragons",
   "version": "0.1.0",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nunesd/dragons.git"
-  },
+  "repository": "https://github.com/nunesd/dragons.git",
   "author": "@nunesd",
   "bugs": {
     "url": "https://github.com/nunesd/dragons/issues"
