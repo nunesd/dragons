@@ -1,10 +1,5 @@
 import { withIronSession } from "next-iron-session";
-import getConfig from "next/config";
-
-const { SECRET_PASS } = getConfig().publicRuntimeConfig;
-
-const VALID_EMAIL = "chris@decimal.fm";
-const VALID_PASSWORD = "opensesame";
+import coockieData from "utils/coockieData";
 
 export default withIronSession(
   async (req, res) => {
@@ -30,8 +25,8 @@ export default withIronSession(
   {
     cookieName: "MYSITECOOKIE",
     cookieOptions: {
-      secure: process.env.NODE_ENV === "production" ? true : false,
+      secure: false,
     },
-    password: process.env.APPLICATION_SECRET,
+    password: process.env.NEXT_PUBLIC_APPLICATION_SECRET,
   }
 );

@@ -13,15 +13,26 @@
     "start": "next start"
   },
   "dependencies": {
-    "crypto-js": "^4.0.0",
+    "cookies": "^0.8.0",
+    "js-cookie": "^2.2.1",
     "next": "latest",
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0",
-    "react-is": "^16.8.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-is": "^17.0.2",
     "styled-components": "^5.0.0"
   },
   "devDependencies": {
-    "babel-plugin-styled-components": "^1.8.0"
+    "@testing-library/jest-dom": "^5.11.6",
+    "@testing-library/react": "^11.2.2",
+    "babel-eslint": "^10.1.0",
+    "babel-plugin-styled-components": "^1.8.0",
+    "eslint": "^7.19.0",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.22.0",
+    "jest": "^26.6.3",
+    "jest-styled-components": "^7.0.3",
+    "prettier": "^2.2.1"
   },
   "license": "MIT"
 }

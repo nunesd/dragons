@@ -1,33 +1,81 @@
-import styled from "styled-components";
-import CryptoJS from "crypto-js";
-import useLocalStorageState from "../helpers/useLocalStorageState";
-import { useEffect } from "react";
-import { useRouter } from "next/router";
+import { useState } from "react";
+import Head from "next/head";
+import Cookies from "cookies";
+import Cookies2 from "js-cookie";
 
-const Title = styled.h1`
-  font-size: 50px;
-  color: ${({ theme }) => theme.colors.primary};
-`;
+import Input from "components/shared/Input";
+import Button from "components/shared/Button";
+import { FullContainer } from "components/shared/CenteredContainers";
 
-export default function Home(props) {
-  const [isLogged] = useLocalStorageState("isLogged", false);
-  const router = useRouter();
+import { LoginContainer, Img } from "components/pages/login/styles";
 
-  useEffect(() => {
-    if (!isLogged) {
-      router.push("/login");
-    }
-  }, [isLogged]);
+import { useLogin } from "components/pages/login/hooks";
 
-  console.log(isLogged, props);
-  return <Title>My page</Title>;
-}
+const Home = (props) => {
+  const [formData, setFormData] = useState({ user: "", password: "" });
+  const { clearValidation, validateForm, doLogin, formIsValid } = useLogin();
 
-export async function getServerSideProps(ctx) {
-  return {
-    redirect: {
-      destination: "/login",
-      permanent: false,
-    },
+  console.log(`coock`, Cookies2.get("user"));
+
+  const onChangeForm = (field) => (value) => {
+    clearValidation();
+    setFormData((state) => ({ ...state, [field]: value }));
   };
-}
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (validateForm(formData)) {
+      doLogin(formData);
+    }
+  };
+
+  return (
+    <FullContainer>
+      <Head>
+        <title>Login</title>
+      </Head>
+      <form onSubmit={handleSubmit}>
+        <LoginContainer>
+          <Img src="/dragon-logo.jpg" alt="icone de dragão" />
+          <Input
+            label="Usuário"
+            name="user"
+            isValid
+            value={formData.user}
+            onChange={onChangeForm("user")}
+          />
+          <Input
+            label="Senha"
+            name="password"
+            type="password"
+            errotText="Usuário ou senha inválido!"
+            isValid={formIsValid}
+            value={formData.password}
+            onChange={onChangeForm("password")}
+          />
+          <Button>Acessar</Button>
+        </LoginContainer>
+      </form>
+    </FullContainer>
+  );
+};
+
+export const getServerSideProps = async ({ req, res }) => {
+  const cookies = new Cookies(req, res);
+
+  if (!cookies.get("user")) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/list",
+      },
+    };
+  }
+
+  return {
+    props: {},
+  };
+};
+
+export default Home;
