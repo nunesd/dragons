@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { StyledButton, Text } from "./styles";
+import { StyledButton, StyledText } from "./styles";
 
 const Button = ({ children, onClick }) => {
   return (
     <StyledButton onClick={onClick}>
-      <Text>{children}</Text>
+      <StyledText>{children}</StyledText>
     </StyledButton>
   );
 };

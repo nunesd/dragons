@@ -6,7 +6,7 @@ const api = (type, body) => {
   return fetch(url, {
     ...params,
     ...body,
-  });
+  }).then((res) => res.json());
 };
 
 export default api;

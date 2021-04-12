@@ -1,15 +1,25 @@
 import React from "react";
-import Link from "next/link";
+import cookie from "js-cookie";
+import { useRouter } from "next/router";
 
-import { Logo } from "../Logo";
+import Signout from "./Signout";
+import Logo from "../Logo";
+
+import { LoginContainer, StyledText } from "./styles";
 
 const Header = () => {
+  const router = useRouter();
   return (
-    <div>
-      <Link href="/">
-        <Logo />
-      </Link>
-    </div>
+    <LoginContainer
+      onClick={() => {
+        debugger;
+        cookie.set("user", "");
+        router.push("/");
+      }}
+    >
+      <Logo />
+      <Signout />
+    </LoginContainer>
   );
 };
 

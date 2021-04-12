@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
+import cookie from "js-cookie";
 
 export const useLogin = () => {
   const router = useRouter();
@@ -32,7 +33,7 @@ export const useLogin = () => {
       return;
     }
 
-    cookieCutter.set("user", user);
+    cookie.set("user", user);
     router.push("/list");
   };
 

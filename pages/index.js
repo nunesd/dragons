@@ -5,9 +5,12 @@ import Cookies2 from "js-cookie";
 
 import Input from "components/shared/Input";
 import Button from "components/shared/Button";
-import { FullContainer } from "components/shared/CenteredContainers";
 
-import { LoginContainer, Img } from "components/pages/login/styles";
+import {
+  StyledBoard,
+  Img,
+  LoginContainer,
+} from "components/pages/login/styles";
 
 import { useLogin } from "components/pages/login/hooks";
 
@@ -31,12 +34,12 @@ const Home = (props) => {
   };
 
   return (
-    <FullContainer>
+    <LoginContainer>
       <Head>
         <title>Login</title>
       </Head>
       <form onSubmit={handleSubmit}>
-        <LoginContainer>
+        <StyledBoard>
           <Img src="/dragon-logo.jpg" alt="icone de dragão" />
           <Input
             label="Usuário"
@@ -55,16 +58,16 @@ const Home = (props) => {
             onChange={onChangeForm("password")}
           />
           <Button>Acessar</Button>
-        </LoginContainer>
+        </StyledBoard>
       </form>
-    </FullContainer>
+    </LoginContainer>
   );
 };
 
 export const getServerSideProps = async ({ req, res }) => {
   const cookies = new Cookies(req, res);
 
-  if (!cookies.get("user")) {
+  if (cookies.get("user")) {
     return {
       redirect: {
         permanent: false,

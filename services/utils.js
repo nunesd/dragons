@@ -1,10 +1,25 @@
-export const getParams = (type) => {
+export const getParams = (type, params) => {
+  const baseURL = "http://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1";
+  const headers = { "Content-Type": "application/json" };
+
   switch (type) {
-    case "login":
+    case "getDragons":
       return {
-        url: "login",
+        url: `${baseURL}/dragon`,
+        method: "GET",
+        headers,
+      };
+    case "getDragon":
+      return {
+        url: `${baseURL}/dragon/${params.id}`,
+        method: "GET",
+        headers,
+      };
+    case "createDragon":
+      return {
+        url: `${baseURL}/dragon`,
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers,
       };
 
     default:
