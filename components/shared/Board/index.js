@@ -8,7 +8,7 @@ const Board = ({ children, className }) => {
 };
 
 Board.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.element,
   className: PropTypes.string,
 };
 

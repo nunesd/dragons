@@ -8,7 +8,18 @@ export const SignoutContainer = styled(Container)`
   height: 50px;
   border-radius: 50%;
   border: 2px solid ${({ theme }) => theme.colors.text};
+  background-color: ${({ theme }) => theme.colors.white};
   cursor: pointer;
+  transition: all 0.5s;
+
+  &:hover {
+    border-color: ${({ theme }) => theme.colors.text};
+    background-color: ${({ theme }) => theme.colors.text};
+
+    P {
+      color: ${({ theme }) => theme.colors.white};
+    }
+  }
 `;
 
 export const StyledText = styled(Text)`

@@ -2,6 +2,8 @@ import styled from "styled-components";
 import Head from "next/head";
 import PropTypes from "prop-types";
 
+import DragonsList from "components/pages/list/DragonsList";
+import { ListContainer } from "components/pages/list/styles";
 import { FullContainer } from "components/shared/CenteredContainers";
 import Header from "components/shared/Header";
 
@@ -20,6 +22,9 @@ const Home = ({ dragons }) => {
       </Head>
       <Header />
       <Title>My page</Title>
+      <ListContainer>
+        <DragonsList dragons={dragons} />
+      </ListContainer>
     </FullContainer>
   );
 };
