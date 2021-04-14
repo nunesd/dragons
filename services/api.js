@@ -1,12 +1,12 @@
+import axios from "axios";
 import { getParams } from "./utils";
 
-const api = (type, body) => {
-  const { url, ...params } = getParams(type);
+const api = (type, parameters, body) => {
+  const { url, ...params } = getParams(type, parameters);
 
-  return fetch(url, {
-    ...params,
-    ...body,
-  }).then((res) => res.json());
+  const data = body || {};
+
+  return axios({ url, ...params, data });
 };
 
 export default api;

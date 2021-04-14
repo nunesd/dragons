@@ -18,8 +18,6 @@ const Home = (props) => {
   const [formData, setFormData] = useState({ user: "", password: "" });
   const { clearValidation, validateForm, doLogin, formIsValid } = useLogin();
 
-  console.log(`coock`, Cookies2.get("user"));
-
   const onChangeForm = (field) => (value) => {
     clearValidation();
     setFormData((state) => ({ ...state, [field]: value }));

@@ -25,6 +25,10 @@ export const StyledInput = styled.input.attrs((props) => ({
   font-size: 14px;
   letter-spacing: -0.1px;
   padding: 10px 15px;
+
+  &:disabled {
+    cursor: text;
+  }
 `;
 
 export const ErrorText = styled.p`

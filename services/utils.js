@@ -9,10 +9,10 @@ export const getParams = (type, params) => {
         method: "GET",
         headers,
       };
-    case "getDragon":
+    case "updateDragon":
       return {
         url: `${baseURL}/dragon/${params.id}`,
-        method: "GET",
+        method: "PUT",
         headers,
       };
     case "createDragon":
@@ -21,8 +21,18 @@ export const getParams = (type, params) => {
         method: "POST",
         headers,
       };
+    case "deleteDragon":
+      return {
+        url: `${baseURL}/dragon/${params.id}`,
+        method: "DELETE",
+        headers,
+      };
 
     default:
-      break;
+      return {
+        url: "",
+        method: "",
+        headers,
+      };
   }
 };

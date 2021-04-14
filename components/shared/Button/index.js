@@ -12,7 +12,7 @@ const Button = ({ children, onClick }) => {
 };
 
 Button.propTypes = {
-  children: PropTypes.element,
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
   onClick: PropTypes.func,
 };
 

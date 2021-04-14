@@ -13,17 +13,21 @@ const Input = ({
   onChange,
   onBlur,
   type,
+  className,
+  disabled,
 }) => {
   return (
     <InputWrapper>
       {label && <Label>{label}</Label>}
       <StyledInput
+        className={className}
         type={type}
         placeholder={placeholder}
         value={value}
         onChange={({ target: { value } }) => onChange(value)}
         onBlur={({ target: { value } }) => onBlur && onBlur(value)}
         name={name}
+        disabled={disabled}
       />
       {isValid === false && <ErrorText>{errotText}</ErrorText>}
     </InputWrapper>
@@ -40,6 +44,8 @@ Input.propTypes = {
   onBlur: PropTypes.func,
   name: PropTypes.string,
   type: PropTypes.string,
+  className: PropTypes.string,
+  disabled: PropTypes.bool,
 };
 
 export default Input;
