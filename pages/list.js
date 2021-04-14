@@ -11,11 +11,6 @@ import Header from "components/shared/Header";
 import api from "services/api";
 import { useState } from "react";
 
-const Title = styled.h1`
-  font-size: 50px;
-  color: ${({ theme }) => theme.colors.primary};
-`;
-
 const Home = ({ initialDragons }) => {
   const [dragons, setDragons] = useState(initialDragons);
 
@@ -29,7 +24,6 @@ const Home = ({ initialDragons }) => {
         <title>Dragões</title>
       </Head>
       <Header />
-      <Title>My page</Title>
       <ListContainer>
         <DragonsList dragons={dragons} removeDragon={removeDragon} />
       </ListContainer>

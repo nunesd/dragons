@@ -9,6 +9,12 @@ export const getParams = (type, params) => {
         method: "GET",
         headers,
       };
+    case "getDragon":
+      return {
+        url: `${baseURL}/dragon/${params.id}`,
+        method: "GET",
+        headers,
+      };
     case "updateDragon":
       return {
         url: `${baseURL}/dragon/${params.id}`,

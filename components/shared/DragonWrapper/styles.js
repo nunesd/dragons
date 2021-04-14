@@ -1,10 +1,4 @@
-import styled, { css } from "styled-components";
-
-const shadowOnhover = css`
-  &:hover {
-    box-shadow: 0 2px 6px 6px ${({ theme }) => `${theme.colors.blue}a1`};
-  }
-`;
+import styled from "styled-components";
 
 export const StyledBoard = styled.div`
   flex-direction: column;
@@ -14,7 +8,9 @@ export const StyledBoard = styled.div`
   border-radius: 11px;
   padding: 10px;
 
-  ${({ hasShadow }) => hasShadow && shadowOnhover}
+  &:hover {
+    box-shadow: 0 2px 6px 6px ${({ theme }) => `${theme.colors.blue}a1`};
+  }
 
   & > *:not(:first-child) {
     margin-top: 5px;
