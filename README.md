@@ -1,4 +1,4 @@
-# Projeto Marvel
+# Projeto Dragons
 
 O projeto está disponível no link `https://github.com/nunesd/dragons`
 
